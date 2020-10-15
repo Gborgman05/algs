@@ -6,7 +6,8 @@ def insertion_sort(unsorted):
         inserted = False
         j = 0
         while not inserted:
-            if unsorted[i]
+            if unsorted[i]:
+                pass
 
 
 def main():
