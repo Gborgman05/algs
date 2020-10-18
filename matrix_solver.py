@@ -35,8 +35,17 @@ class matrix:
             for x in range(i + 1, len(self.rows)):
                 multiplier = -1 * self.rows[x][i]
                 self.add_row(i, x, multiplier)
+        self.percolate_up()
+
         print(self.rows)
         print(self.vector)
+
+    def percolate_up(self):
+        for i in range(len(self.rows) - 1, -1, -1):
+            for j in range(i - 1, -1, -1):
+                multiplier = -1 * self.rows[j][i]
+                self.add_row(i, j, multiplier)
+
 
 
 if __name__ == "__main__":
