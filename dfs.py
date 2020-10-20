@@ -16,9 +16,9 @@ def dfs(source):
 if __name__ == "__main__":
     root = Node("A")
     second = Node("B")
-    second.add_edge(Node("D"))
+    third = Node("D")
+    fourth = Node("C", weight_list=[1], adjacency_list=root)
     root.add_edge(second)
-    root.add_edge(Node("C"))
-    this = root.adj[0]
-    (root.adj[0]).add_edge(Node("D"))
+    second.add_edge(third)
+    root.add_edge(fourth)
     dfs(root)
