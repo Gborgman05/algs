@@ -1,8 +1,9 @@
 class Matrix:
 
-    def __init__(self, nums):
+    def __init__(self, nums, name="Unnamed"):
         self.rows = []
         self.vector = []
+        self.name = name
         nums = nums.split(' ')
         j = -1
         row_len = int(len(nums) ** (1 / 2))
@@ -42,8 +43,7 @@ class Matrix:
                 multiplier = -1 * self.rows[x][i]
                 self.add_row(i, x, multiplier)
         self.percolate_up()
-
-        print(self.rows)
+        self.display_matrix()
         print(self.vector)
 
     def percolate_up(self):
@@ -73,7 +73,7 @@ class Matrix:
         return Matrix(string.rstrip())
 
     def display_matrix(self):
-        lines = [" " + "_" *(len(self.rows) * 2 - 1) ]
+        lines = [ self.name, " " + "_" *(len(self.rows) * 2 - 1)]
         for i in range(len(self.rows)):
            line = "|"
            for j in range(len(self.rows[i])):
