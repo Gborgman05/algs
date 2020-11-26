@@ -13,6 +13,7 @@ class Matrix:
                 j += 1
             else:
                 self.rows[j].append(int(nums[i]))
+
     def verify_square(self):
         try:
             for row in self.rows:
@@ -20,6 +21,7 @@ class Matrix:
             return True
         except IndexError:
             return False
+
     def add_row(self, src_index, dest_index, multiplier):
         for i in range(len(self.rows)):
             self.rows[dest_index][i] += multiplier * self.rows[src_index][i]
@@ -38,7 +40,7 @@ class Matrix:
                         self.rows[i][x] = self.rows[i][x] / divisor
                     vector[i] = vector[i] / divisor
             # if i + 1 < len(self.rows):
-                # find the next 0 there
+            # find the next 0 there
             for x in range(i + 1, len(self.rows)):
                 multiplier = -1 * self.rows[x][i]
                 self.add_row(i, x, multiplier)
@@ -51,6 +53,7 @@ class Matrix:
             for j in range(i - 1, -1, -1):
                 multiplier = -1 * self.rows[j][i]
                 self.add_row(i, j, multiplier)
+
     def matrix_multiply(self, multiplier):
         multiplier.verify_square()
         answer_matrix = []
@@ -63,7 +66,7 @@ class Matrix:
                 answer_matrix[i].append(val)
         answer = self.build_matrix(answer_matrix)
         answer.display_matrix()
-            #go across the row and get the column values
+        # go across the row and get the column values
 
     def build_matrix(self, matrix):
         string = ""
@@ -73,15 +76,14 @@ class Matrix:
         return Matrix(string.rstrip())
 
     def display_matrix(self):
-        lines = [ self.name, " " + "_" *(len(self.rows) * 2 - 1)]
+        lines = [self.name, " " + "_" * (len(self.rows) * 2 - 1)]
         for i in range(len(self.rows)):
-           line = "|"
-           for j in range(len(self.rows[i])):
-               line += (str(self.rows[i][j]) + "|")
-           lines.append(line)
+            line = "|"
+            for j in range(len(self.rows[i])):
+                line += (str(self.rows[i][j]) + "|")
+            lines.append(line)
         for line in lines:
             print(line)
-
 
 
 if __name__ == "__main__":
