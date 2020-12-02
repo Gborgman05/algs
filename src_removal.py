@@ -35,10 +35,6 @@ def source_removal(graph):
     return dependency_resolution
 
 if __name__ == "__main__":
-    # graph = Graph()
-    # graph.add_node(Node("D"))
-    # graph.add_node(Node("B", [graph.nodes[0]]))
-    # graph.add_node(Node("E", [graph.nodes[0]]))
     graph = {
         "G": ["A", "F"],
         "A": ["B", "C"],
