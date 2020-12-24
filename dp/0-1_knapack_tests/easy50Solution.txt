@@ -1,0 +1,3 @@
+250= capacity
+Dynamic Programming Solution: Value 112, Weight 249
+Item 22 Item 23 Item 25 Item 26 Item 27 Item 28 Item 29 Item 30 

@@ -1,0 +1,8 @@
+600000000= capacity
+0 (ms) 
+Greedy Solution: Value 725, Weight 579000024
+Item 1 Item 2 Item 3 Item 4 Item 5 Item 11 Item 12 Item 13 Item 14 Item 15 Item 16 Item 17 Item 18 Item 19 
+13 (ms) 
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+	at dp.dynamicProgramming(dp.java:7)
+	at KnapsackSolver.main(KnapsackSolver.java:26)
