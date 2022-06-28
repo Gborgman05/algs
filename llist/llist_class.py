@@ -68,7 +68,10 @@ class MyLinkedList:
                 node = node.next
         if node:
             a = MyNode(val, node.prev, node)
-            node.prev.next = a
+            if node.prev:
+                node.prev.next = a
+            else:
+                self.head = a
             node.prev = a
         else:
             self.addAtTail(val)
@@ -77,6 +80,9 @@ class MyLinkedList:
         """
         Delete the index-th node in the linked list, if the index is valid.
         """
+        if index == 0 and self.head:
+            self.head = self.head.next
+            return
         node = self.head
         for i in range(index):
             if not node:
