@@ -50,5 +50,53 @@ class Solution:
                     l2 = l2.next
             else:
                 return value
-                    
-        
+
+# apparently my solution from ages ago?
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+# class Solution:
+#     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+#         one = []
+#         while l1:
+#             one.append(l1.val)
+#             l1 = l1.next
+#         two = []
+#         while l2:
+#             two.append(l2.val)
+#             l2 = l2.next
+#         one = one[::-1]
+#         two = two[::-1]
+#         while len(one) > len(two):
+#             two.insert(0, 0)
+#         while len(two) > len(one):
+#             one.insert(0,0)
+#         print(one, two)
+            
+#         one = one[::-1]
+#         two = two[::-1]
+#         final_list = []
+#         carry = 0
+#         for i in range(len(one)):
+#             num = one[i] + two[i] + carry
+#             carry = 0
+#             if num > 9:
+#                 #need to carry
+#                 carry=1
+#                 num -= 10
+#             final_list.append(num)
+#         if carry:
+#             final_list.append(carry)
+#         ptr = ListNode()
+#         hello = ptr
+#         print(final_list)
+#         for i in range(len(final_list)):
+#             ptr.val = final_list[i]
+#             print(final_list[i])
+#             if i != len(final_list) - 1:
+#                 ptr.next = ListNode()
+#                 ptr = ptr.next
+#         return hello
