@@ -1,4 +1,4 @@
-from node import Node
+from graphs.node import Node
 
 
 def dfs(source):
