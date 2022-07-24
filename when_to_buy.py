@@ -1,3 +1,4 @@
+# maximizes profit by buying low and selling high
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         lcal_min = 0
