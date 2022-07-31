@@ -12,6 +12,7 @@ class Solution:
                 j -= 1
             elif height[i] <= height[j]:
                 i += 1
+
         return highest
                 
             
