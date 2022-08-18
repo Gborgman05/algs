@@ -3,12 +3,25 @@
 # Test cases
 
 import unittest
-import numpy as np
-
-BITMAPSTART = 3
-DEFAULT_DISK_SIZE  = 10240 
+from llist import Llist
 
 class TestLlist(unittest.TestCase):
 
     def test_create(self):
-        self.assertEqual()
+        my_list = Llist()
+        self.assertEqual(0, len(my_list))
+        new_list = Llist([1, 2, 3, 4])
+        self.assertEqual(4, len(new_list))
+    
+    def test_append(self):
+        my_list = Llist()
+        self.assertEqual(0, len(my_list))
+        my_list.append(0)
+        self.assertEqual(1, len(my_list))
+        new_list = Llist([1, 2, 3, 4])
+        self.assertEqual(4, len(new_list))
+        new_list.append(5)
+        self.assertEqual(5, len(new_list))
+
+    
+

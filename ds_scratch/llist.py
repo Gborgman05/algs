@@ -15,12 +15,12 @@ class Llist:
             for val in lst:
                 node = Node(val)
                 if self.nodes:
-                    curr.next = node
+                    curr.n = node
                     curr = node
                     self.len += 1
                     
                 else:
-                    self.nodes = node:
+                    self.nodes = node
                     curr = node
                     self.len += 1
     
@@ -30,10 +30,12 @@ class Llist:
             self.nodes = Node(item)
         else:
             curr = self.nodes
-            while curr.next:
-                curr = curr.next
-            curr.next = Node(item)
+            while curr.n:
+                curr = curr.n
+            curr.n = Node(item)
         self.len += 1
+    def __len__(self):
+        return self.len
 
 
 
