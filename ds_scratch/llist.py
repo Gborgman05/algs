@@ -34,6 +34,14 @@ class Llist:
                 curr = curr.n
             curr.n = Node(item)
         self.len += 1
+
+    def peek(self):
+        # O(1)
+        if self.len == 0:
+            return None
+        else:
+            # should i retern the value or the node?
+            return self.nodes
     def __len__(self):
         return self.len
 
