@@ -23,5 +23,11 @@ class TestLlist(unittest.TestCase):
         new_list.append(5)
         self.assertEqual(5, len(new_list))
 
+    def test_pop(self):
+        my_list = Llist()
+        my_list.append(0)
+        self.assertEqual(0, my_list.pop())
+        new_list = Llist([1, 2, 3, 4])
+
     
 

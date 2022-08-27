@@ -1,6 +1,7 @@
 # Galen Borgman
 # 8/17/2022
 # linked list 
+import pdb
 class Node:
     def __init__(self, val=None, n=None):
         self.val = val
@@ -42,6 +43,40 @@ class Llist:
         else:
             # should i retern the value or the node?
             return self.nodes
+    def pop(self, index=None):
+        pdb.set_trace()
+        if index == None and self.len < 1:
+            raise BaseException("Attempted to pop from empty list")
+        if index is None:
+            index = self.len - 1
+        if index >= self.len or index < 0 :
+            raise BaseException("Attempted to pop from index out of range")
+        if index == 0:
+            tmp = self.nodes.val 
+            if self.nodes:
+                self.nodes = self.nodes.n
+            # self.nodes = self.nodes.next if self.nodes else None
+            self.len -= 1
+            return tmp
+        counter = 1
+        curr = self.nodes
+        nxt = self.nodes.n if self.nodes else None
+        while counter < index:
+            curr = nxt
+            nxt = curr.n
+            counter += 1
+        if nxt:
+            # i wonder if this is garbage collected, removed the only 
+            # forward reference to a node, but the node has a reference to active code. 
+            # It should be garbage collected
+            tmp = curr.nxt.val
+            curr.nxt = curr.nxt.n
+            return tmp
+        else:
+            raise BaseException("Attempted to pop from index out of range")
+
+
+
     def __len__(self):
         return self.len
 
