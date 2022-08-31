@@ -1,4 +1,4 @@
-# Angela Kerlin, Galen Borgman
+# Galen Borgman
 # 5/28/2022
 # Test cases
 
@@ -29,5 +29,9 @@ class TestLlist(unittest.TestCase):
         self.assertEqual(0, my_list.pop())
         new_list = Llist([1, 2, 3, 4])
 
-    
-
+    def test_push_pop(self):
+        my_list = Llist()
+        my_list.append(0)
+        self.assertEqual(0, my_list.pop())
+        my_list.append(11)
+        self.assertEqual(11, my_list.pop())
