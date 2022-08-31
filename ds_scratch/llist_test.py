@@ -35,3 +35,9 @@ class TestLlist(unittest.TestCase):
         self.assertEqual(0, my_list.pop())
         my_list.append(11)
         self.assertEqual(11, my_list.pop())
+    
+    def test_lookup(self):
+        lst = [1, 3, 4, 5, 6]
+        my_list = Llist(lst)
+        for i in range(len(lst)): 
+            self.assertEqual(lst[i], my_list.lookup(i))

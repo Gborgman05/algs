@@ -44,7 +44,7 @@ class Llist:
             # should i retern the value or the node?
             return self.nodes
     def pop(self, index=None):
-        pdb.set_trace()
+        # pdb.set_trace()
         if index == None and self.len < 1:
             raise BaseException("Attempted to pop from empty list")
         if index is None:
@@ -79,6 +79,15 @@ class Llist:
 
     def __len__(self):
         return self.len
+
+    def lookup(self, i):
+        cur = self.nodes
+        while i > 0:
+            cur = cur.n
+            i -= 1
+        return cur.val
+
+
 
 
 
