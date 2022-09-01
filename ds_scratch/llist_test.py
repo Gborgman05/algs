@@ -41,3 +41,13 @@ class TestLlist(unittest.TestCase):
         my_list = Llist(lst)
         for i in range(len(lst)): 
             self.assertEqual(lst[i], my_list[i])
+
+    def test_set(self):
+        lst = [1, 3, 4, 5, 6]
+        my_list = Llist(lst)
+        for i in range(len(lst)): 
+            self.assertEqual(lst[i], my_list[i])
+        my_list[1] = -10
+        new = [1, -10, 4, 5, 6]
+        for i in range(len(new)):
+            self.assertEqual(my_list[i], new[i])
