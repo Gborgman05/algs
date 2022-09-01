@@ -81,12 +81,23 @@ class Llist:
         return self.len
 
     def __getitem__(self, key):
+        if key >= self.len:
+            raise BaseException("Index out of bounds")
         cur = self.nodes
         while key > 0:
             cur = cur.n
             key -= 1
         return cur.val
 
+    def __setitem__(self, key, value):
+        if key >= self.len:
+            raise BaseException("Index out of bounds")
+        cur = self.nodes
+        while key > 0:
+            cur = cur.n
+            key -= 1
+        cur.val = value 
+        # return cur.val
 
 
 
