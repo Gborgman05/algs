@@ -80,11 +80,11 @@ class Llist:
     def __len__(self):
         return self.len
 
-    def lookup(self, i):
+    def __getitem__(self, key):
         cur = self.nodes
-        while i > 0:
+        while key > 0:
             cur = cur.n
-            i -= 1
+            key -= 1
         return cur.val
 
 

@@ -40,4 +40,4 @@ class TestLlist(unittest.TestCase):
         lst = [1, 3, 4, 5, 6]
         my_list = Llist(lst)
         for i in range(len(lst)): 
-            self.assertEqual(lst[i], my_list.lookup(i))
+            self.assertEqual(lst[i], my_list[i])
