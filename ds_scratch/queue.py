@@ -12,3 +12,5 @@ class Q:
             self.len = 0
     def __len__(self):
         return self.len
+    # def enqueue(self, item):
+

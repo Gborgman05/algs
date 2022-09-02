@@ -51,3 +51,16 @@ class TestLlist(unittest.TestCase):
         new = [1, -10, 4, 5, 6]
         for i in range(len(new)):
             self.assertEqual(my_list[i], new[i])
+    
+    def test_extensive(self):
+        # lst = []
+        my_list = Llist()
+        for i in [2, 3, 4 -1, 2]:
+            my_list.append(i)
+        for i in [0, 1, 2]:
+            my_list[i] = i
+        test = [0, 1, 2, -1, 2]
+        for i in range(len(test)):
+            print(i)
+            self.assertEqual(test[i], my_list[i])
+
