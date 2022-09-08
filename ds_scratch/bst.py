@@ -11,4 +11,15 @@ class bst:
         else:
             self.nodes = nodes
     def construct(self, nodes):
-        pass
+        for i in range(len(nodes)):
+            pass
+
+    def __len__(self):
+        def helper(node):
+            if not node:
+                return 0
+            else:
+                return max([helper(node.left),helper(node.right)]) + 1
+        return helper(self.nodes)
+
+        
