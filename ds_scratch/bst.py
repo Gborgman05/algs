@@ -22,4 +22,12 @@ class bst:
                 return max([helper(node.left),helper(node.right)]) + 1
         return helper(self.nodes)
 
+    def min(self):
+        def helper(node):
+            if not node:
+                return None
+            else:
+                return self.min(node.left) if self.min(node.left) else node.val
+        return helper(self.nodes)
+
         
