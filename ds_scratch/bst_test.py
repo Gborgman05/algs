@@ -9,3 +9,8 @@ class TestLlist(unittest.TestCase):
         self.assertEqual(a.nodes, None)
         b = Bst([1, 2, 3])
         self.assertEqual(b.nodes.val, 2)
+    
+    def test_l_r(self):
+        a = Bst([1, 2, 3, 4, 5])
+        self.assertEqual(a.nodes.val, 3)
+
