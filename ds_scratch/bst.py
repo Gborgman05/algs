@@ -61,4 +61,12 @@ class Bst:
                 return self.min(node.left) if self.min(node.left) else node.val
         return helper(self.nodes)
 
+    def max(self):
+        def helper(node):
+            if not node:
+                return None
+            else:
+                return self.max(node.left) if self.max(node.left) else node.val
+        return helper(self.nodes)
+
         
