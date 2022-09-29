@@ -14,3 +14,7 @@ class TestLlist(unittest.TestCase):
         a = Bst([1, 2, 3, 4, 5])
         self.assertEqual(a.nodes.val, 3)
 
+    def test_is_valid(self):
+        a = Bst([1, 2, 3, 4, 5])
+        self.assertTrue(a.is_valid())
+

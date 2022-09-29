@@ -28,6 +28,18 @@ class Bst:
                 else:
                     cur.right = Node(item)
                     break
+    def is_valid(self) -> bool:
+        """is a valid BST"""
+        high = 2147483648 + 1
+        low = -2147483648 - 1
+        root = self.nodes
+        def helper(high, low, node):
+            if not node:
+                return True
+            else:
+                return node.val < high and node.val > low and helper(node.val, low, node.left) and helper(high, node.val, node.right)
+        return helper(high, low, root)
+        
         
             
 
