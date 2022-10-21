@@ -1,18 +1,28 @@
 class Solution:
     def divide(self, dividend: int, divisor: int) -> int:
-        pos = True
-        if dividend < 0 and divisor < 0:
-            pass
-        elif dividend > 0 and divisor > 0:
-            pass
-        else:
-            pos = False
-        dividend = abs(dividend)
-        divisor = abs(divisor)
+        neg = (divisor < 0) ^ (dividend < 0)
+        if divisor < 0:
+            divisor = -divisor
+        if dividend < 0:
+            dividend = -dividend
         count = 0
+        cur_counter = 1
+        cur_divisor = divisor
         while dividend >= divisor:
-            dividend -= divisor
-            count += 1
-        if not pos:
+            while dividend >= cur_divisor + cur_divisor:
+                cur_divisor = cur_divisor + cur_divisor
+                cur_counter = cur_counter + cur_counter
+                dividend -= cur_divisor
+                count += cur_counter
+            cur_divisor = divisor
+            cur_counter = 1
+            if dividend >= divisor:
+                count += 1
+                dividend -= divisor
+
+
+        if neg:
             count = -count
         return count
+            
+        
