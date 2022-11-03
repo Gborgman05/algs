@@ -1,5 +1,8 @@
 class Solution:
     def divide(self, dividend: int, divisor: int) -> int:
+        # weird edge case I don't understand from leetcode
+        if dividend == -2147483648 and divisor == -1:
+            return 2147483647
         neg = (divisor < 0) ^ (dividend < 0)
         if divisor < 0:
             divisor = -divisor
@@ -23,6 +26,4 @@ class Solution:
 
         if neg:
             count = -count
-        return count
-            
-        
+        return count 
