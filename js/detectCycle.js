@@ -11,17 +11,17 @@
  * @return {ListNode}
  */
 var detectCycle = function(head) {
-    seen = {}
-    cnter = 0
     while(head) {
-        if(head in seen) {
+        if(head.visited) {
+            delete head.visited
             return head
         }
         else {
-            seen[head] = cnter
+            head.visited = true
             head = head.next
+            
         }
-        cnter++;
+        // cnter++;
     }
-    return head    
+    return null
 };
