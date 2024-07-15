@@ -49,3 +49,33 @@ class Solution:
                 print(mid)
                 print("err")
         return [-1, -1]
+
+
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        left = 0
+        right = len(nums) - 1
+        l_index = len(nums) - 1
+        r_index = 0
+        while left <= right:
+            pivot = (left + right) //  2
+            if nums[pivot] < target:
+                left = pivot + 1
+            elif nums[pivot] > target:
+                right = pivot - 1
+            else:
+                l_index = pivot
+                r_index = pivot
+                while l_index > 0:
+                    if nums[l_index - 1] == target:
+                        l_index -= 1
+                    else:
+                        break
+                while r_index < len(nums) - 1:
+                    if nums[r_index + 1] == target:
+                        r_index += 1
+                    else:
+                        break
+                return [l_index, r_index]
+        return [-1, -1]
+                
