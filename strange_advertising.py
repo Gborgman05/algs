@@ -14,7 +14,13 @@ import sys
 #
 
 def viralAdvertising(n):
-    # Write your code here
+    likes = 0
+    shares = 5
+    for i in range(n):
+        tmp_likes = shares // 2
+        likes += tmp_likes
+        shares = tmp_likes * 3
+    return likes
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
