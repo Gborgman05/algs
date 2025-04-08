@@ -1,12 +1,30 @@
 class Solution:
 
     def encode(self, strs: List[str]) -> str:
-        return str(strs).replace("'", "").replace(" ", "")
+        final = ""
+        first = True
+        for st in strs:
+            if first:
+                first = False
+                final += str(len(st))
+            else:
+                final += " " + str(len(st)) 
+        final += '#'
+        for st in strs:
+            final += st
+        return final
 
     def decode(self, s: str) -> List[str]:
-        print(s)
-        if s == '[]':
+        split_index = s.index('#')
+        if split_index == 0:
             return []
-        if s:
-            return s.replace("[", "").replace("]", "").split(",")
+        counts = s[:split_index]
+        string = s[split_index + 1:]
+        counts = [int(t) for t in counts.split(" ")]
+        final = []
+        i = 0
+        for count in counts:
+            final.append(string[i:i+count])
+            i += count
+        return final
         
