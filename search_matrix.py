@@ -31,3 +31,30 @@ class Solution:
         #         pass
         #     elif matrix[pivot2][pivot] < target:
                 
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        # do binary search on first number in each row, then on the row
+        top = 0
+        bottom = len(matrix) - 1
+        if len(matrix) == 1 and len(matrix[0]) == 1:
+            return matrix[0][0] == target
+        while top <= bottom:
+            midpoint = (bottom + top) // 2
+            if matrix[midpoint][0] > target:
+                bottom = midpoint - 1
+            elif matrix[midpoint][0] < target:
+                top = midpoint + 1
+            else:
+                return True
+        l = 0
+        r = len(matrix[0]) - 1
+        row = bottom
+        while l <= r:
+            midpoint = (l + l) // 2
+            if matrix[row][midpoint] > target:
+                r = midpoint - 1
+            elif matrix[row][midpoint] < target:
+                l = midpoint + 1
+            else:
+                return True
+        return False
