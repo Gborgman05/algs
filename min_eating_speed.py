@@ -1,15 +1,17 @@
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
-        speed = 0
-        sm = 0
-        mx = max(piles)
+        # why do we cap the max instead of - 1
         mn = 1
-        while mn < mx:
-            speed = (mx + mn) / 2
-            sm = sum((x + speed - 1) / speed for x in piles)
-            if sm > h:
-                mn = speed + 1 
+        mx = max(piles)
+
+        while mn  < mx:
+            mid = (mx + mn) // 2
+            
+            hours_taken = sum([math.ceil(pile  / mid) for pile in piles])
+            if hours_taken > h:
+                mn = mid + 1
             else:
-                mx = speed
+                mx = mid
+
+        return mx
         
-        return speed
