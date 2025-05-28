@@ -25,3 +25,27 @@ class Solution:
                     permute.append(old + new)
             final = permute
         return final
+    
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+        if not digits:
+            return []
+        num_to_letter = {
+            "2":"abc",
+            "3":"def",
+            "4":"ghi",
+            "5":"jkl",
+            "6":"mno",
+            "7":"pqrs",
+            "8":"tuv",
+            "9":"wxyz",
+        }
+        final = [""]
+        for char in digits:
+            tmp = []
+            for char2 in final:
+                for char3 in num_to_letter[char]:
+                    tmp.append(char2 + char3)
+            final = tmp
+        return final
+
