@@ -42,3 +42,40 @@ class Solution:
         # print(copied[1].val, " val ", [n.val for n in copied[1].neighbors])
         if copied:
             return copied[1]
+        
+
+        """
+# Definition for a Node.
+class Node:
+    def __init__(self, val = 0, neighbors = None):
+        self.val = val
+        self.neighbors = neighbors if neighbors is not None else []
+"""
+
+from typing import Optional
+class Solution:
+    def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
+        if not node:
+            return None
+        seen = {}
+        q = []
+        if node:
+            q.append(node)
+        while q:
+            curr = q.pop(0)
+            if not curr or curr.val in seen:
+                continue
+            seen[curr.val] = Node(curr.val)
+            q += curr.neighbors
+        if node:
+            q = [node]
+        connected = {}
+        while q:
+            curr = q.pop(0)
+            if not curr or curr.val in connected:
+                continue
+            q += curr.neighbors
+            seen[curr.val].neighbors = [seen[n.val] for n in curr.neighbors]
+            connected[curr.val] = 1
+        
+        return seen[node.val]
