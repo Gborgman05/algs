@@ -11,3 +11,18 @@ class Solution:
             res = max(res, cur_max)
         
         return res
+
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        fin = 0
+        total = nums[0]
+        fin = total
+
+        for num in nums[1:]:
+            if total < 0:
+                total = 0
+            total += num
+            fin = max(fin, total)
+        return fin
+
+        
