@@ -26,3 +26,24 @@ class Solution:
                 i += 1
             intervals.append(new_interval)
         return intervals
+
+class Solution:
+    def partitionLabels(self, s: str) -> List[int]:
+        index_of_last = {}
+        for i in range(len(s)):
+            index_of_last[s[i]] = i 
+        final = []
+        i = 0
+        while i < len(s):
+            end = index_of_last[s[i]]
+            j = 0
+            while i+ j < len(s) and i + j < end + 1:
+                end = max(end, index_of_last[s[i+j]])
+                j += 1
+            final.append(end - i+ 1)
+            i = end + 1
+        return final
+
+
+
+            
