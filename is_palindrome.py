@@ -21,3 +21,26 @@ class Solution:
             start += 1
             end -= 1
         return True
+
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        l = 0
+        r = len(s) - 1
+        s = s.lower()
+        while l < len(s) and not((ord(s[l]) <= ord("z") and ord(s[l]) >= ord("a")) or (ord(s[l]) <= ord("9") and ord(s[l]) >= ord("0"))):
+            l += 1
+        while r >= 0 and not((ord(s[r]) <= ord("z") and ord(s[r]) >= ord("a")) or (ord(s[r]) <= ord("9") and ord(s[r]) >= ord("0"))):
+            r -= 1
+        
+        while l < r:
+            while l < len(s) and not((ord(s[l]) <= ord("z") and ord(s[l]) >= ord("a")) or (ord(s[l]) <= ord("9") and ord(s[l]) >= ord("0"))):
+                l += 1
+            while r >= 0 and not((ord(s[r]) <= ord("z") and ord(s[r]) >= ord("a")) or (ord(s[r]) <= ord("9") and ord(s[r]) >= ord("0"))):
+                r -= 1
+            # print(l)
+            # print(r)
+            if s[l] != s[r]:
+                return False
+            l += 1
+            r -= 1
+        return True
