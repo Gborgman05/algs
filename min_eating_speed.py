@@ -15,3 +15,23 @@ class Solution:
 
         return mx
         
+
+class Solution:
+    def minEatingSpeed(self, piles: List[int], h: int) -> int:
+        if len(piles) > h:
+            return False
+        l = 1
+        r = max(piles)
+
+        while l < r:
+            mid = (l+r) // 2
+            eaten = sum([math.ceil(pile / mid) for pile in piles])
+            if eaten > h:
+                l = mid + 1
+            elif eaten <= h:
+                r = mid
+        return r
+
+
+
+        return l
