@@ -9,3 +9,16 @@ class Solution:
             if price < mini:
                 mini = price
         return prof
+
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        low = prices[0]
+        max_prof = 0
+        for i in range(len(prices)):
+            if prices[i] > low:
+                max_prof = max(max_prof, prices[i] - low)
+            else:
+                low = prices[i]
+        return max_prof
+        
