@@ -22,3 +22,25 @@ class Solution:
                 low = prices[i]
         return max_prof
         
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        #buy, sell, skip
+        max_amt = 0
+
+        dp = {}
+        def helper(index, is_buying):
+            if (index, is_buying) in dp:
+                return dp[(index, is_buying)]
+            if index >= len(prices): 
+                return 0
+            cooldown = helper(index + 1, is_buying)
+
+            if is_buying:
+                buy = helper(index + 1, not is_buying) - prices[index]
+                dp[(index, is_buying)] = max(cooldown, buy)
+            else:
+                sell = helper(index + 2, not is_buying) + prices[index]
+                dp[(index, is_buying)] = max(cooldown, sell)
+            return dp[(index, is_buying)]
+        return helper(0, True)

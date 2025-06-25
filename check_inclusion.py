@@ -39,3 +39,40 @@ class Solution:
             return True
         else:
             return False
+        
+class Solution:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        store = {}
+        for char in s1:
+            if char in store:
+                store[char] += 1
+            else:
+                store[char] = 1
+        start, end = 0, 0
+        test = {}
+        test_count = 0
+        store_count = len(s1)
+        while end < len(s2):
+            # print(start)
+            # print(end)
+            # print(test)
+            if store == test:
+                return True
+
+            while end < len(s2) and len(s1) > test_count:
+                if s2[end] not in test:
+                    test[s2[end]] = 1
+                    test_count += 1
+                else:
+                    test[s2[end]] += 1
+                    test_count += 1
+                end += 1
+            if test == store:
+                return True
+            
+            test[s2[start]] -= 1
+            if test[s2[start]] == 0:
+                del test[s2[start]]
+            start += 1
+            test_count -= 1
+        return False
