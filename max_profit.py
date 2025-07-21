@@ -44,3 +44,15 @@ class Solution:
                 dp[(index, is_buying)] = max(cooldown, sell)
             return dp[(index, is_buying)]
         return helper(0, True)
+
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        min_poss = prices[0]
+        max_poss = 0
+        for price in prices:
+            if price < min_poss:
+                min_poss = price
+            else:
+                max_poss = max(max_poss, price - min_poss)
+        return max_poss

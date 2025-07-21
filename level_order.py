@@ -29,3 +29,28 @@ class Solution:
         return final_order
 
             
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if not root:
+            return []
+        q = [root]
+        final = []
+        lvl = []
+        while q:
+            final.append([x.val for x in q])
+            lvl = []
+            for tmp in q:
+                if tmp and tmp.left:
+                    lvl.append(tmp.left)
+                if tmp and tmp.right:
+                    lvl.append(tmp.right)
+            q = lvl
+        return final
+        
