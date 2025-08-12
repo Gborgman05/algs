@@ -33,7 +33,7 @@ class Solution:
         #     final.append(curr_interval)
         # return final
 
-    class Solution:
+class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         # idk if its sorted or not
         intervals = sorted(intervals, key=lambda a: a[0])
