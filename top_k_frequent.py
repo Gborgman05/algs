@@ -33,3 +33,26 @@ class Solution:
             final.append(heapq.heappop(a)[1])
 
         return final
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        store = {}
+        least_frequent = None
+        for num in nums:
+            if num in store:
+                store[num] += 1
+            else:
+                store[num] = 1
+        freq_to_val = [[] for _ in range(len(nums) + 1)]
+        for key, value in store.items():
+            freq_to_val[value].append(key)
+        final = []
+        # print(freq_to_val)
+        for i in range(len(freq_to_val) - 1, -1, -1):
+            for n in freq_to_val[i]:
+                final.append(n)
+                if len(final) == k:
+                    return final
+        return final
+
+
+        
