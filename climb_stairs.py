@@ -17,4 +17,13 @@ class Solution:
             stairs[i] = stairs[i-1] + stairs[i-2]
         return stairs[-1]
 
-        
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        ways = [0] * n
+        if n <= 2:
+            return n
+        ways[0] = 1
+        ways[1] = 2
+        for i in range(2, len(ways)):
+            ways[i] = ways[i-1] + ways[i-2]
+        return ways[-1]

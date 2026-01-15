@@ -32,3 +32,13 @@ class Solution:
             rob_total[i] = max(rob_total[i-1], rob_total[i-2] + nums[i])
         # print(rob_total)
         return rob_total[-1]
+
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        max_loot = [0] * len(nums)
+        if len(nums) <= 2:
+            return max(nums)
+        max_loot[0], max_loot[1] = nums[0], max(nums[1], nums[0])
+        for i in range(2, len(max_loot)):
+            max_loot[i] = max(max_loot[i-2] + nums[i], max_loot[i-1])
+        return max_loot[-1]
