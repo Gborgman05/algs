@@ -42,3 +42,25 @@ class Solution:
         for i in range(2, len(max_loot)):
             max_loot[i] = max(max_loot[i-2] + nums[i], max_loot[i-1])
         return max_loot[-1]
+
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        # do it assuming first house is robbed, then do it assuming last house is robbed
+        # first house
+        if len(nums) < 3:
+            return max(nums)
+        take = [0] * (len(nums) -1)
+        take[0] = nums[0]
+        take[1] = nums[0]
+        for i in range(2, len(take)):
+            take[i] = max(take[i-1], take[i-2] + nums[i])
+        
+        #last house
+        take2 = [0] * (len(nums))
+        take2[0] = 0
+        take2[1] = take2[0] + nums[1]
+        for i in range(2, len(take2)):
+            take2[i] = max(take2[i-1], take2[i-2] + nums[i])
+        return max (take[-1], take2[-1])
+
+
