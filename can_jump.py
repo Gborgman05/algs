@@ -27,3 +27,16 @@ class Solution:
                 return False
             max_jump_from_here = max(max_jump_from_here - 1, nums[i])
         return max_jump_from_here > 0
+
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        max_jump = 1
+        if len(nums) == 1:
+            return True
+        for num in nums:
+            max_jump -= 1
+            if max_jump < 0:
+                return False
+            max_jump = max(max_jump, num)
+
+        return True
