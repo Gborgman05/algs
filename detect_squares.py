@@ -45,3 +45,31 @@ class DetectSquares:
 # obj = DetectSquares()
 # obj.add(point)
 # param_2 = obj.count(point)
+
+
+class DetectSquares:
+
+    def __init__(self):
+        self.counts = Counter()
+        self.x_coord = defaultdict(Counter)
+        
+
+    def add(self, point: List[int]) -> None:
+        x, y = point
+        self.counts[x, y] += 1
+        self.x_coord[x][y] += 1
+
+    def count(self, point: List[int]) -> int:
+        x, y = point
+        final = 0
+        for y2 in self.x_coord[x]:
+            if y == y2: continue
+            final += self.counts[x, y2] * self.counts[x + y2 - y, y] * self.counts[x + y2 - y, y2]
+            final += self.counts[x, y2] * self.counts[x + y - y2, y] * self.counts[x + y - y2, y2]
+        return final
+
+
+# Your DetectSquares object will be instantiated and called as such:
+# obj = DetectSquares()
+# obj.add(point)
+# param_2 = obj.count(point)
