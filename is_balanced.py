@@ -65,3 +65,22 @@ class Solution:
                 r = dfs(node.right)
                 return (l[0] and r[0] and abs(l[1] - r[1]) <= 1, 1 + max(l[1], r[1]))
         return dfs(root)[0]
+    
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maxHeight(self, root):
+        if root:
+            return 1 + max(self.maxHeight(root.left), self.maxHeight(root.right))
+        return 0
+    def isBalanced(self, root: Optional[TreeNode]) -> bool:
+        if root:
+            return (abs(self.maxHeight(root.left) - self.maxHeight(root.right)) < 2 and 
+            self.isBalanced(root.left) and 
+            self.isBalanced(root.right))
+        return True
+        
