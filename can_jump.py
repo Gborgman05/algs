@@ -40,3 +40,15 @@ class Solution:
             max_jump = max(max_jump, num)
 
         return True
+
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        max_jump = 0
+        curr_index = 0
+        while curr_index < len(nums) - 1:
+            max_jump = max(max_jump-1, nums[curr_index])
+            if max_jump < 1:
+                return False
+            curr_index += 1
+        
+        return True
