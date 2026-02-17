@@ -16,3 +16,13 @@ class Solution:
         
         helper(0)
         return final 
+
+
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        def sub(i, curr):
+            if i == len(nums):
+                return [curr]
+            return sub(i + 1, curr) + sub(i + 1, curr + [nums[i]])
+
+        return sub(0, [])
