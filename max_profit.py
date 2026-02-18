@@ -56,3 +56,18 @@ class Solution:
             else:
                 max_poss = max(max_poss, price - min_poss)
         return max_poss
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        max_prof = 0
+        start, end = 0, 0 
+        for i in range(len(prices)):
+            price = prices[i]
+            if price < prices[start]:
+                start = i
+            if price > prices[end]:
+                end = i
+            if start > end:
+                end = start
+            max_prof = max(max_prof, prices[end] - prices[start])
+        return max_prof
