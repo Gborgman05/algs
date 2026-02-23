@@ -53,4 +53,26 @@ class Solution:
             # print(stack)
         return stack[0]
                     
-        
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        ops = ['+', '-', '*', '/']
+        stack = []
+        for token in tokens:
+            if token in ops:
+                num2 = stack.pop()
+                num1 = stack.pop()
+                val = 0
+                if token == '+':
+                    val = num1 + num2
+                if token == '-':
+                    val = num1 - num2
+                if token == '*':
+                    val = num1 * num2
+                if token == '/':
+                    val = int(num1 / num2)
+                stack.append(val)
+            else:
+                stack.append(int(token))
+                    
+
+        return stack[0]
