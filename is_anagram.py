@@ -33,3 +33,20 @@ class Solution:
             else:
                 t_store[char] = 1
         return s_store == t_store
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        s_dict = {}
+        t_dict = {}
+        for char in s:
+            if char in s_dict:
+                s_dict[char] += 1
+            else:
+                s_dict[char] = 1
+        for char in t:
+            if char in s_dict:
+                s_dict[char] -= 1
+                if s_dict[char] == 0:
+                    del s_dict[char]
+            else:
+                return False
+        return not s_dict

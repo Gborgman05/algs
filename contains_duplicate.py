@@ -8,3 +8,13 @@ class Solution:
                 store[num] = 0
         return False
         
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        store = {}
+        for num in nums:
+            if num in store:
+                return True
+            else:
+                store[num] = 1
+        return False
+        

@@ -24,3 +24,25 @@ class Solution:
                 forward += 1
         return max(already_seen.values())
         
+
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        if not nums: 
+            return 0
+        store = {}
+        for num in nums:
+            store[num] = 1
+        start = 0
+        end = 0
+        for key in nums:
+            if key <= end and key >= start:
+                continue # prevents o(n^2)
+            s = key
+            e = key
+            while e+1 in nums:
+                e+= 1
+            if e - s > end - start:
+                start = s
+                end = e
+        return end - start + 1
+            

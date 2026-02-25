@@ -49,6 +49,13 @@ class Solution:
                 return [i, val_to_i[target - nums[i]]]
             val_to_i[nums[i]] = i
 
-            
-        
-                
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        has = {}
+        for i in range(len(nums)):
+            num = nums[i]
+            if target - num in has:
+                return [i, has[target - num]]
+            else:
+                has[num] = i
+        return None               

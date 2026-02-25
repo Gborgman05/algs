@@ -54,5 +54,27 @@ class Solution:
                     return final
         return final
 
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        top_k = []
+        counts = {}
+        for num in nums:
+            if num in counts:
+                counts[num] += 1
+            else:
+                counts[num] = 1
+        flipped = {}
+        for key, value in counts.items():
+            if value in flipped:
+                flipped[value] += [key]
+            else:
+                flipped[value] = [key]
+        for i in range(len(nums), -1, -1):
+            if i in flipped:
+                top_k += flipped[i] 
+                if len(top_k) == k:
+                    return top_k
+                
+
 
         
