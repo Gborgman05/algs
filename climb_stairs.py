@@ -27,3 +27,20 @@ class Solution:
         for i in range(2, len(ways)):
             ways[i] = ways[i-1] + ways[i-2]
         return ways[-1]
+
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        # is there just an arithmetic solution to this
+        # n = 5
+        # 1, 2, 3, 5, 8
+        if n == 0:
+            return 0
+        ways = [0] * (n + 1)
+        ways[0] = 1
+
+        for i in range(len(ways)):
+            if i > 0:
+                ways[i] += ways[i-1]
+            if i > 1:
+                ways[i] += ways[i-2]
+        return ways[-1]

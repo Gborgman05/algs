@@ -64,3 +64,16 @@ class Solution:
         return max (take[-1], take2[-1])
 
 
+
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+        if len(nums) < 3:
+            return max(nums)
+        max_take = [0] * len(nums)
+        max_take[0] = nums[0]
+        max_take[1] = max(nums[0], nums[1])
+        for i in range(2, len(max_take)):
+            max_take[i] = max(nums[i] + max_take[i-2], max_take[i-1])
+        return max_take[-1]

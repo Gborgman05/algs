@@ -71,3 +71,24 @@ class Solution:
         return l
 
 
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        if not s:
+            return ""
+        longest = s[0]
+        for i in range(len(s)):
+            modifier = 0
+            while modifier + i < len(s) and -modifier + i >= 0 and s[i + modifier] == s[i - modifier]:
+                modifier += 1
+            # print(modifier , " ")
+            if 2*(modifier - 1) + 1 > len(longest):
+                longest = s[i - (modifier-1):i + (modifier)]
+
+        for i in range(len(s)-1):
+            modifier = 0
+            while modifier + i+1 < len(s) and -modifier + i >= 0 and s[i + modifier+1] == s[i - modifier]:
+                modifier += 1
+            print(modifier)
+            if 2*(modifier - 1) + 2 > len(longest):
+                longest = s[i - (modifier-1):i + (modifier+1)]
+        return longest

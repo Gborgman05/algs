@@ -17,3 +17,23 @@ class Solution:
        # print(final)
 
         return final[-1]
+
+class Solution:
+    def numDecodings(self, s: str) -> int:
+        # 1234567
+        # 1 2 3 4 5 6 7
+        # 12 3 4 5 6 7
+        # 1 23
+        if s[0] == '0' or s[-1] == '0' and int(s[-2]) > 2:
+            return 0
+        ways = [0] * len(s)
+        for i in range(len(ways)):
+            if i > 0:
+                if int(s[i-1]) < 3 and int(s[i-1]) > 0 and int(s[i]) < 7:
+                    ways[i] = ways[i-1] + 1
+                else:
+                    ways[i] = ways[i-1]            
+            else:
+                ways[i] = 1
+        return ways[-1]
+        
